@@ -1,0 +1,10 @@
+# The two sides of the break-even. Check both prices before relying on the dollar figures.
+teacher:        # OpenAI's list price for gpt-3.5-turbo-0613 when HELM ran it (2023), per million tokens
+  input_per_million: 1.50
+  output_per_million: 2.00
+student_host:   # one small VM runs the student; AWS on-demand, us-east-1
+  name: c7i.large (2 vCPU, 4 GiB)
+  per_hour: 0.08925
+  vcpus: 2
+peak_to_average: 3      # size the fleet for three times the average request rate
+amortise_months: 12     # spread the one-off cost of labelling the training set over a year
