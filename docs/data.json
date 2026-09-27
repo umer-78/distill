@@ -1,0 +1,161 @@
+{
+ "summary": {
+  "examples": 3627,
+  "dropped_off_schema": 70,
+  "train": 2081,
+  "val": 202,
+  "test": 215,
+  "test_variants": 580,
+  "cpu": "x86_64",
+  "threads": 2,
+  "teacher": {
+   "accuracy": 0.9534883720930233,
+   "accuracy_variants": 0.9517241379310345,
+   "prompt_tokens": 2605.8472566859664,
+   "cost_per_request": 0.0039107708850289495
+  },
+  "students": {
+   "tfidf": {
+    "name": "TF-IDF + logistic regression",
+    "C": 10.0,
+    "accuracy": 0.8511627906976744,
+    "agreement": 0.8697674418604651,
+    "accuracy_variants": 0.843103448275862,
+    "accuracy_trained_on_gold": 0.8465116279069768,
+    "speed": {
+     "p50_ms": 1.2284344993531704,
+     "p95_ms": 5.699383402497915,
+     "per_second": 3678.437810130454
+    },
+    "economics": {
+     "teacher_per_request": 0.0039107708850289495,
+     "labelling_cost": 8.138314211745245,
+     "break_even_per_month": 16865,
+     "monthly": [
+      {
+       "requests": 10000,
+       "teacher": 39.1077088502895,
+       "student": 65.83069285097878
+      },
+      {
+       "requests": 100000,
+       "teacher": 391.0770885028949,
+       "student": 65.83069285097878
+      },
+      {
+       "requests": 1000000,
+       "teacher": 3910.7708850289496,
+       "student": 65.83069285097878
+      },
+      {
+       "requests": 10000000,
+       "teacher": 39107.70885028949,
+       "student": 65.83069285097878
+      },
+      {
+       "requests": 100000000,
+       "teacher": 391077.08850289497,
+       "student": 65.83069285097878
+      }
+     ]
+    }
+   },
+   "bge": {
+    "name": "bge-small + logistic regression",
+    "C": 1.0,
+    "accuracy": 0.9488372093023256,
+    "agreement": 0.9302325581395349,
+    "accuracy_variants": 0.9258620689655173,
+    "accuracy_trained_on_gold": 0.9441860465116279,
+    "speed": {
+     "p50_ms": 71.0058825006854,
+     "p95_ms": 91.68928999806667,
+     "per_second": 12.093259559594873
+    },
+    "economics": {
+     "teacher_per_request": 0.0039107708850289495,
+     "labelling_cost": 8.138314211745245,
+     "break_even_per_month": 16865,
+     "monthly": [
+      {
+       "requests": 10000,
+       "teacher": 39.1077088502895,
+       "student": 65.83069285097878
+      },
+      {
+       "requests": 100000,
+       "teacher": 391.0770885028949,
+       "student": 65.83069285097878
+      },
+      {
+       "requests": 1000000,
+       "teacher": 3910.7708850289496,
+       "student": 65.83069285097878
+      },
+      {
+       "requests": 10000000,
+       "teacher": 39107.70885028949,
+       "student": 65.83069285097878
+      },
+      {
+       "requests": 100000000,
+       "teacher": 391077.08850289497,
+       "student": 652.2031928509788
+      }
+     ]
+    }
+   }
+  },
+  "learning_curve": [
+   {
+    "reviews": 25,
+    "examples": 91,
+    "accuracy": 0.8883720930232558,
+    "agreement": 0.8790697674418605
+   },
+   {
+    "reviews": 50,
+    "examples": 185,
+    "accuracy": 0.9255813953488372,
+    "agreement": 0.9162790697674419
+   },
+   {
+    "reviews": 100,
+    "examples": 355,
+    "accuracy": 0.9302325581395349,
+    "agreement": 0.9116279069767442
+   },
+   {
+    "reviews": 200,
+    "examples": 729,
+    "accuracy": 0.9395348837209302,
+    "agreement": 0.9302325581395349
+   },
+   {
+    "reviews": 400,
+    "examples": 1457,
+    "accuracy": 0.9441860465116279,
+    "agreement": 0.9255813953488372
+   },
+   {
+    "reviews": 571,
+    "examples": 2081,
+    "accuracy": 0.9488372093023256,
+    "agreement": 0.9302325581395349
+   }
+  ]
+ },
+ "prices": {
+  "teacher": {
+   "input_per_million": 1.5,
+   "output_per_million": 2.0
+  },
+  "student_host": {
+   "name": "c7i.large (2 vCPU, 4 GiB)",
+   "per_hour": 0.08925,
+   "vcpus": 2
+  },
+  "peak_to_average": 3,
+  "amortise_months": 12
+ }
+}

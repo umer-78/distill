@@ -1,0 +1,41 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Distill · Umer Hashmi</title>
+  <meta name="description" content="Distilling an LLM classifier into a small model you own: accuracy, latency and a break-even calculator, measured on IMDB reviews labelled by GPT-3.5 Turbo.">
+  <link rel="stylesheet" href="kit.css">
+  <style>:root { --accent: #15803d; --on-accent: #fff; } @media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) { --accent: #4ade80; --on-accent: #0f0e0c; } }</style>
+</head>
+<body>
+  <div class="wrap">
+    <header>
+      <a class="crumb" href="https://umer-78.github.io/">← All projects</a>
+      <h1>Distill</h1>
+      <p class="lede">A classification task that runs on an LLM API costs money on every request. Here GPT-3.5 Turbo's recorded labels for IMDB reviews train two small students, TF-IDF and a sentence-embedding model, and the students are measured on accuracy, robustness to typos and dialect, speed on two CPU threads, and cost. Change the prices and volume below to see when owning the student pays.</p>
+      <div class="links"><a class="btn primary" href="#money">When does it pay?</a><a class="btn" href="https://github.com/umer-78/distill">Code and method</a></div>
+    </header>
+    <main>
+      <section class="kpis" id="kpis"></section>
+      <div class="grid2">
+        <section class="card"><h2>Accuracy</h2><p class="sub">Test reviews the teacher never labelled for training, and 580 variants of them with typos, dialect and swapped names.</p><div id="acc"></div></section>
+        <section class="card"><h2>Learning curve</h2><p class="sub">The embedding student trained on fewer of the teacher's labels. Each review brings its variants.</p><div id="curve"></div><div id="curveKey"></div></section>
+      </div>
+      <section class="card" id="money">
+        <h2>When does owning the student pay?</h2>
+        <p class="sub">The teacher costs the same for every request. The student costs a machine a month, as many as the peak load needs, plus labelling its training set once, spread over a year. Defaults are the bench's: list prices when HELM ran GPT-3.5 Turbo and an AWS c7i.large on demand.</p>
+        <div class="controls"><label for="vol">Requests a month</label><input id="vol" type="range" min="3" max="9" step="0.05" value="6"><b id="volVal" class="mono"></b></div>
+        <div class="controls"><label for="tp">Teacher, $ per 1,000</label><input id="tp" type="range" min="-1" max="1.5" step="0.001"><b id="tpVal" class="mono"></b></div>
+        <div class="controls"><label for="hp">Machine, $ per hour</label><input id="hp" type="range" min="0.01" max="0.5" step="0.005"><b id="hpVal" class="mono"></b></div>
+        <div class="controls"><label>Student</label><div id="who"></div></div>
+        <div class="readout" id="costs"></div>
+        <div id="costChart" style="margin-top:12px"></div>
+        <div id="costKey"></div>
+      </section>
+    </main>
+    <footer>Built by <a href="https://github.com/umer-78">Umer Hashmi</a> · Teacher labels and reviews from <a href="https://crfm.stanford.edu/helm/classic/">HELM Classic</a>'s IMDB run (Stanford CRFM), downloaded at run time · Embeddings: bge-small-en-v1.5 (BAAI, MIT) · Prices: distill/prices.yaml</footer>
+  </div>
+  <script type="module" src="app.js"></script>
+</body>
+</html>

@@ -1,5 +1,7 @@
 # distill
 
+**Live demo:** https://umer-78.github.io/distill/ (accuracy, learning curve, and a break-even calculator with your own prices)
+
 Distil a frontier model's work on one narrow task into a small model you own, and find the request volume above which owning it beats renting the teacher.
 
 The task is sentiment on real movie reviews (IMDB). The teacher is GPT-3.5 Turbo: its recorded answers come from HELM, including answers to HELM's robustness variants of each review (typos, dialect, swapped names). The student is bge-small (33M parameters, run on CPU through ONNX Runtime) with a logistic-regression head, trained only on the teacher's labels.
@@ -62,6 +64,7 @@ The task is sentiment on real movie reviews (IMDB). The teacher is GPT-3.5 Turbo
 pip install -e '.[dev]'
 pytest -q
 python -m distill bench    # embeds 3,627 texts once (about 10 minutes on 4 cores), then under a minute
+python -m distill.demo     # rebuild the live demo's data in docs/
 ```
 
 HELM's results and the bge-small model (pinned by SHA-256) are downloaded on first use into `~/.cache/distill`; nothing is committed.
