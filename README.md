@@ -1,5 +1,7 @@
 # distill
 
+[![CI](https://github.com/umer-78/distill/actions/workflows/ci.yml/badge.svg)](https://github.com/umer-78/distill/actions/workflows/ci.yml)
+
 [![Distill: the live demo](.github/preview.jpg)](https://umer-78.github.io/distill/)
 
 **Live demo:** https://umer-78.github.io/distill/ (accuracy, learning curve, and a break-even calculator with your own prices)
@@ -70,3 +72,7 @@ python -m distill.demo     # rebuild the live demo's data in docs/
 ```
 
 HELM's results and the bge-small model (pinned by SHA-256) are downloaded on first use into `~/.cache/distill`; nothing is committed.
+
+## Licence
+
+MIT licence (see [LICENSE](LICENSE)). The data it evaluates (HELM Classic's IMDB run and the bge-small model) keeps its own licence and is downloaded when you run it.
