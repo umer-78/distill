@@ -1,20 +1,27 @@
 <!doctype html>
-<html lang="en">
+<html lang="en" data-scene="distill">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Distill · Umer Hashmi</title>
   <meta name="description" content="Distilling an LLM classifier into a small model you own: accuracy, latency and a break-even calculator, measured on IMDB reviews labelled by GPT-3.5 Turbo.">
+  <meta name="theme-color" content="#15803d">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap">
   <link rel="stylesheet" href="kit.css">
-  <style>:root { --accent: #15803d; --on-accent: #fff; } @media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) { --accent: #4ade80; --on-accent: #0f0e0c; } }</style>
+  <link rel="stylesheet" href="fx.css">
+  <style>:root { --accent: #15803d; --fx-2: #06b6d4; --fx-3: #a855f7; --on-accent: #fff; } @media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) { --accent: #4ade80; --on-accent: #0f0e0c; } }</style>
 </head>
 <body>
   <div class="wrap">
-    <header>
-      <a class="crumb" href="https://umer-78.github.io/">← All projects</a>
+    <nav class="fx-nav" aria-label="On this page"><a class="fx-home" href="https://umer-78.github.io/">← All projects</a><a class="fx-gh" href="https://github.com/umer-78/distill">GitHub</a></nav>
+    <header class="fx-hero">
+      <span class="fx-eyebrow">LLM engineering · Python</span>
       <h1>Distill</h1>
       <p class="lede">A classification task that runs on an LLM API costs money on every request. Here GPT-3.5 Turbo's recorded labels for IMDB reviews train two small students, TF-IDF and a sentence-embedding model, and the students are measured on accuracy, robustness to typos and dialect, speed on two CPU threads, and cost. Change the prices and volume below to see when owning the student pays.</p>
       <div class="links"><a class="btn primary" href="#money">When does it pay?</a><a class="btn" href="https://github.com/umer-78/distill">Code and method</a></div>
+      <div class="fx-tags" aria-hidden="true"><div><span>python</span><span>llm</span><span>distillation</span><span>onnx</span><span>cost</span><span>embeddings</span><span>python</span><span>llm</span><span>distillation</span><span>onnx</span><span>cost</span><span>embeddings</span></div></div>
     </header>
     <main>
       <section class="kpis" id="kpis"></section>
@@ -37,5 +44,6 @@
     <footer>Built by <a href="https://github.com/umer-78">Umer Hashmi</a> · Teacher labels and reviews from <a href="https://crfm.stanford.edu/helm/classic/">HELM Classic</a>'s IMDB run (Stanford CRFM), downloaded at run time · Embeddings: bge-small-en-v1.5 (BAAI, MIT) · Prices: distill/prices.yaml</footer>
   </div>
   <script type="module" src="app.js"></script>
+  <script type="module" src="fx.js"></script>
 </body>
 </html>
