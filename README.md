@@ -1,5 +1,7 @@
 # distill
 
+[![Distill: the live demo](.github/preview.jpg)](https://umer-78.github.io/distill/)
+
 **Live demo:** https://umer-78.github.io/distill/ (accuracy, learning curve, and a break-even calculator with your own prices)
 
 Distil a frontier model's work on one narrow task into a small model you own, and find the request volume above which owning it beats renting the teacher.
