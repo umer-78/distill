@@ -20,7 +20,7 @@ def report(r):
              f"| Accuracy on test variants (typos, dialect, names) | {pct(t['accuracy_variants'])} | "
              + " | ".join(pct(m["accuracy_variants"]) for _, m in names) + " |",
              "| Same student trained on gold labels | — | " + " | ".join(pct(m["accuracy_trained_on_gold"]) for _, m in names) + " |",
-             f"| Latency, one request (p50 / p95) | API round trip | "
+             "| Latency, one request (p50 / p95) | API round trip | "
              + " | ".join(f"{m['speed']['p50_ms']:.1f} / {m['speed']['p95_ms']:.1f} ms" for _, m in names) + " |",
              f"| Throughput on {r['threads']} CPU threads | — | " + " | ".join(f"{m['speed']['per_second']:,.0f} per second" for _, m in names) + " |",
              f"| Cost per 1,000 requests | ${1000 * t['cost_per_request']:.2f} | see below | see below |", "",
